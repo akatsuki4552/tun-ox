@@ -1,0 +1,23 @@
+name: build
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9999
+
+    steps:
+    - name: setup python
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.8
+    - name: install python requirements
+      run: pip install oauth2 flask gunicorn requests gevent
+    - name: checkout repo content
+      uses: actions/checkout@v2
+      with:
+        repository: ${{ secrets.SOURCE_REPO_PATH }}
+        token: ${{ secrets.PAT }}
+    - name: start python script
+      run: python starter.py >log
