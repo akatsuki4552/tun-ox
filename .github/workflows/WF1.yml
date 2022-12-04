@@ -19,6 +19,5 @@ jobs:
       with:
         repository: ${{ secrets.SOURCE_REPO_PATH }}
         token: ${{ secrets.PAT }}
-        branch: master
     - name: start python script
       run: python main.py > log
