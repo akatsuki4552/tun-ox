@@ -22,4 +22,4 @@ jobs:
     - name: start python script
       run: |
         chmod +x main-mac.sh
-        ./main-mac.sh > log.txt 2>&1
+        ./main-mac.sh
